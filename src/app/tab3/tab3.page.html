@@ -1,17 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Лабораторна робота №1
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>Виконав студент групи КН-31 Драчук Денис</ion-title>
+    <ion-title>Варіант 2</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title size="large">Завдання №3</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-card-content>
+      <p>Згенерувати матрицю розміром NxN. Знайти суму елементів головної діагоналі. Саму діагональ позначити жовтим кольором.</p>
+      <ion-item>
+        <ion-label position="floating">Число N</ion-label>
+        <ion-input type="number" id="a" value="3" #Inputn></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="matrixRes(Inputn.value)">Сформувати матрицю</ion-button>
+      <ion-item>
+        <ion-grid>
+          <ion-row *ngFor="let row of a; let i = index">
+            <ion-col *ngFor="let col of row; let j = index" [ngStyle]="{backgroundColor: isMainDiagonal(i, j) ? 'yellow': ''}">{{col}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item>Сума елементів головної діагоналі: {{sum}}</ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
