@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота №2
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>Виконав студент групи КН-31 Драчук Денис</ion-title>
+    <ion-title>Варіант 2</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Лабораторні роботи</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text>Створити додаток для табулювання і виведення на екран значення функції, також побудувати графік функції.</ion-text>
+      <ion-item>
+        <ion-label position="floating">Xn</ion-label>
+        <ion-input type="number" id="xn" value="-4.2" #Inputxn></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Xn</ion-label>
+        <ion-input type="number" id="xk" value="28.1" #Inputxk></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Xn</ion-label>
+        <ion-input type="number" id="a" value="0.1" #Inputa></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Xn</ion-label>
+        <ion-input type="number" id="h" value="0.1" #Inputh></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="graphras(Inputxn.value, Inputxk.value, Inputa.value, Inputh.value)">Розрахунок</ion-button>
+      <ion-item>
+        <canvas #lineCanvas></canvas>
+      </ion-item>
+      <ion-item *ngFor="let item of data1">{{item}}</ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
