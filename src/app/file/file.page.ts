@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 
 @Component({
@@ -12,6 +12,7 @@ export class FilePage implements OnInit {
   showDetails: boolean[] = new Array(1000).fill(false);
   dataUrl = 'https://api.jsonbin.io/v3/b/6559dca554105e766fd22630';
   loading: any;
+  lenght: number = 0; 
 
   constructor(public loadingController:LoadingController) {
   }
@@ -27,12 +28,11 @@ export class FilePage implements OnInit {
         this.data = json;
         this.data = this.data.record;
         let i = 0;
-        console.log(this.data);
         while (this.data[i] != undefined) {
           this.data_newspapers.push(this.data[i][0]);
           i++;
+          this.lenght++;
         }
-        this.findNewsPapers();
         this.loading.dismiss();
       });
   }
@@ -47,14 +47,20 @@ export class FilePage implements OnInit {
   }
 
   findNewsPapers() {
-    let date = document.getElementById('date');
-    for (let i = 0; i < this.data_newspapers.lenght; i++) {
-      if (date == this.data_newspapers['publishedIn']) console.log(this.data_newspapers['name']);
+    let selectedDate = (document.getElementById('date') as HTMLInputElement).value;
+    let dateObj = new Date(selectedDate);
+    let month: number = dateObj.getMonth() + 1;
+    for (let i = 0; i < this.lenght; i++) {
+      let publishedInObj = new Date(this.data_newspapers[i]['publishedIn']);
+      let publishedInMonth: number = publishedInObj.getMonth() + 1;
+      if (month == publishedInMonth) {
+        console.log(this.data_newspapers[i]["name"]);
+        this.data_newspapers[i].highlight = true;
+      }
+      else {
+        this.data_newspapers[i].highlight = false;
+      }
     }
-  }
-
-  getGreenColor() {
-    return 'green';
   }
 
   ngOnInit() {

@@ -28,7 +28,7 @@
         <ion-list>
           <ion-item button *ngFor="let item of data_newspapers; index as i" detail (click)="toggleDetails(i)">
             <ion-label class="list_label_width" *ngIf="!showDetails[i]" text-wrap>
-              <p> Назва: {{item.name}}<br>
+              <p [ngStyle]="{color: item.highlight ? 'green' : 'black'}"> Назва: {{item.name}}<br>
                   Дата: {{item.publishedIn}}
               </p>
             </ion-label>
@@ -39,6 +39,10 @@
           </ion-item>
         </ion-list>
       </ion-item>
+      <ion-item>
+        <ion-input class="item_input_width" id='date' type="date"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="findNewsPapers()">Знайти</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
