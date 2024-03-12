@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота №4
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>Виконав студент групи КН-31 Драчук Денис</ion-title>
+    <ion-title>Варіант 2</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Лабораторні роботи</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Батьківський клас: траспортний засіб. Нащадки: літак, корабель. Методи: вартість траспортного засобу</p>
+      <p>Організувати обчислення середньої вартості літаків і середньої вартості кораблів.</p>
+      <ion-input type="number" value="5" #Inputn></ion-input>
+      <ion-button (click)="result(Inputn.value)">Розрахунок</ion-button>
+      <p *ngFor="let vec of vehicle">{{vec.show()}}</p>
+      <br>
+      <p *ngIf="averageValueForPlanes != 0">Середня ціна для літаків: {{averageValueForPlanes}}</p>
+      <p *ngIf="averageValueForShips != 0">Середня ціна для кораблів: {{averageValueForShips}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
