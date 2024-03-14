@@ -44,14 +44,6 @@ export class AbstractClassPage implements OnInit {
     this.averageValueForPlanes /= this.numberOfPlanes;
     this.averageValueForShips /= this.numberOfShips;
   }
-  printAverageValue() {
-    if (this.numberOfPlanes > 0 && this.numberOfShips > 0) {
-      return "Середнє для літаків: " + this.averageValueForPlanes + ", " +
-             "Середнє для кораблів: " + this.averageValueForShips;
-    } else {
-      return "Не обчислено середні значення.";
-    }
-  }
 
   ngOnInit() {
   }
