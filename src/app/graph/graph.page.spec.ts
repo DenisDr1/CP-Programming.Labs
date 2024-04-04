@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { GraphPage } from './graph.page';
+import { async } from '@angular/core/testing';
+
 
 describe('GraphPage', () => {
   let component: GraphPage;

@@ -4,8 +4,10 @@ export class Ship extends Vehicle
 {
     numberOfPassengers!: number;
     homePort!: string;
-    constructor(override name: string, numberOfPassengers: number, homePort: string) {
-        super();
+    constructor(name: string, numberOfPassengers: number, homePort: string) {
+        if (numberOfPassengers < 1000 || numberOfPassengers > 3000) throw new Error('numberOfPassengers < 1000 or numberOfPassengers > 3000');
+        if (/\d/.test(homePort) == false) throw new Error('homePort doesn\'t have a number');
+        super(name);
         this.numberOfPassengers = numberOfPassengers;
         this.homePort = homePort;
     }
