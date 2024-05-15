@@ -1,0 +1,14 @@
+<app-my-header name="Лабораторна робота №6"></app-my-header>
+
+<ion-content [fullscreen]="true">
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Завдання</ion-card-title>
+            <p>Варіант: Персона, працівник, співробітник, службовець, інженер</p>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-button (click) = "result()">Отримати результат</ion-button>
+            <ion-item *ngFor="let item of show">{{item}}</ion-item>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

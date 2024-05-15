@@ -1,0 +1,53 @@
+<app-my-header name="Лабораторна робота №7"></app-my-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+      <p>
+        1. Розробити сервіс для табулювання функції відповідно до варіанту<br>
+        2. Розробити сервіс для розрахунку значень функції за допомогою ряду
+        відповідно до варіанту.<br>
+        3. Розробити сервіс для розрахунку значень функції за допомогою
+        рекурсії відповідно до варіанту.<br>
+        4. Розробити сервіс для логування обчислених значень у консоль та
+        використати його у попередніх трьох сервісах.<br>
+        5. У основному застосунку підключити сервіси, вивести результати усіх
+        розрахунків та побудувати графіки для усіх обрахунків.
+      </p>
+      <div class="img_formula"></div>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Xn</ion-label>
+        <ion-input #InputXn value="0.1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Xk</ion-label>
+        <ion-input #InputXk value="3.1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">h</ion-label>
+        <ion-input #InputH value="0.1"></ion-input>
+      </ion-item>
+      <ion-button (click)="getResultAndGraph(InputXn.value, InputXk.value, InputH.value)">Результат і графік</ion-button>
+
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let item of xyInput | keyvalue">
+          <ion-label>
+            <h5>{{item.key}}</h5>
+            <h5>{{item.value}}</h5>
+          </ion-label>
+        </ion-item>
+      </ion-list>       
+      <ion-item>
+        <canvas #lineCanvas></canvas> 
+      </ion-item>
+    </ion-card-content>
+    
+  </ion-card>
+</ion-content>

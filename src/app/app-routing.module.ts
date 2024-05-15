@@ -17,6 +17,22 @@ const routes: Routes = [
   {
     path: 'abstract-class',
     loadChildren: () => import('./abstract-class/abstract-class.module').then( m => m.AbstractClassPageModule)
+  },
+  {
+    path: 'interfacepage',
+    loadChildren: () => import('./interfacepage/interfacepage.module').then( m => m.InterfacepagePageModule)
+  },
+  {
+    path: 'servicepage',
+    loadChildren: () => import('./servicepage/servicepage.module').then( m => m.ServicepagePageModule)
+  },
+  {
+    path: 'forms',
+    loadChildren: () => import('./forms/forms.module').then( m => m.FormsPageModule)
+  },
+  {
+    path: 'observablepage',
+    loadChildren: () => import('./observablepage/observablepage.module').then( m => m.ObservablepagePageModule)
   }
 ];
 @NgModule({

@@ -1,0 +1,28 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      <ion-label position="floating">Факультет</ion-label>
+    </ion-card-title>
+  </ion-card-header>
+  
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Назва факультету</ion-label>
+      <ion-input [value]="faculty.facultyName" #Inputn></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">ПІБ декана</ion-label>
+      <ion-input [value]="faculty.deanName" #Inputc></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Телефон</ion-label>
+      <ion-input [value]="faculty.phone" #Inputu></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Адреса</ion-label>
+      <ion-input [value]="faculty.address" #Inputp></ion-input>
+    </ion-item>
+  </ion-card-content>
+  
+  <ion-button (click)="save(Inputn.value, Inputc.value, Inputu.value, Inputp.value)">Зберегти</ion-button>
+</ion-card>

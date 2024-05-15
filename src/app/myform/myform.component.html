@@ -1,0 +1,50 @@
+<form [formGroup]="facultyForm" (ngSubmit)="onSubmit()"> 
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>Форма факультету</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Назва факультету</ion-label>
+          <ion-input id="faculty-name" type="text" formControlName="facultyName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">ПІБ декана</ion-label>
+          <ion-input id="dean-name" type="text" formControlName="deanName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Телефон</ion-label>
+          <ion-input id="phone" type="tel" formControlName="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Адреса</ion-label>
+          <ion-input id="address" type="text" formControlName="address"></ion-input>
+        </ion-item>
+      
+        <ion-card formArrayName="departments">
+          <ion-card-header>
+            <ion-card-title>Список кафедр</ion-card-title>
+          </ion-card-header>
+          
+          <ion-card-content>
+            <ion-button (click)="addDepartment()">
+              <ion-icon slot="start" name="add"></ion-icon>
+              Додати кафедру
+            </ion-button>
+
+            <ion-item *ngFor="let department of getDepartmentsControls(); let i=index">
+              <ion-input type="text" formControlName="{{i}}" placeholder="Назва кафедри"> </ion-input>
+              <ion-button (click)="deleteDepartment(i)">
+                <ion-icon slot="start" name="trash"></ion-icon>
+                Видалити
+              </ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+  </ion-card>
+  <ion-button type="submit" expand="block" fill="outline" [disabled]="!facultyForm.valid">
+    Зберегти
+  </ion-button>
+</form>
