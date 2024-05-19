@@ -20,11 +20,11 @@
 
   <ion-card>
     <ion-item> 
-      <ion-label> Поточний міст: {{currentCity.name}} </ion-label>
+      <ion-label> Поточне місто: {{city.name}} </ion-label>
       <ion-button (click)="nextCity()">Наступний міст</ion-button>
     </ion-item>
 
-    <ion-item *ngFor="let enterprise of enterpriseList; let i = index">
+    <ion-item *ngFor="let enterprise of enterpriseList.searchEnterprise; let i = index">
       <ion-label>{{enterprise.name}} </ion-label>
       <ion-label>{{enterprise.date}} </ion-label>
       <ion-label>{{enterprise.address}} </ion-label>
@@ -59,7 +59,7 @@
       <ion-input #InputOcc></ion-input>
       <ion-label position="stacked">Введіть ID міста:</ion-label>
       <ion-input #InputCityId></ion-input>
-      <ion-button (click)="addEnterprise(InputName.value, InputDate.value, InputAddress.value, InputType.value, InputOcc.value, InputCityId.value)">Додати</ion-button>
+      <ion-button (click)="addEnterprise(InputName.value, InputDate.value, InputAddress.value, InputType.value, InputOcc.value)">Додати</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
