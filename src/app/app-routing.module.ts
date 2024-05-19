@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'observablepage',
     loadChildren: () => import('./observablepage/observablepage.module').then( m => m.ObservablepagePageModule)
+  },
+  {
+    path: 'observablepagefirebase',
+    loadChildren: () => import('./observablepagefirebase/observablepagefirebase.module').then( m => m.ObservablepagefirebasePageModule)
   }
 ];
 @NgModule({
